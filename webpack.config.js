@@ -8,6 +8,9 @@ module.exports = {
     path: path.join(__dirname, './build'),
     filename: 'pdfmake.js'
   },
+  externals: {
+    lodash: '_'
+  },
   resolve: {
     alias: {
       fs: path.join(__dirname, './src/browser-extensions/virtual-fs.js')
@@ -16,8 +19,8 @@ module.exports = {
   module: {
     loaders: [
       { test: /\.json$/, loader: 'json' },
-      { test: /browser-extensions\/pdfMake.js$/, loader: 'expose?pdfMake' },
-      { test: /pdfkit\/js\/mixins\/fonts.js$/, loader: StringReplacePlugin.replace({
+      { test: /browser-extensions\\pdfMake.js$/, loader: 'expose?pdfMake' },
+      { test: /pdfkit\\js\\mixins\\fonts.js$/, loader: StringReplacePlugin.replace({
         replacements: [
           {
             pattern: 'return this.font(\'Helvetica\');',
